@@ -3,12 +3,22 @@
 
 #include "common.hh"
 
-namespace TCPSock{
-    class TCPSock{
+namespace TCPServer{
+    class TCPServer{
     public:
-        TCPSock(){};
-        virtual ~TCPSock(){};
+        TCPServer(int port);
+        virtual ~TCPServer();
+
+        // function
+        void Setup();
+        void Run();
+        void Stop();
     private:
+        struct sockaddr_in saddr, caddr;
+        int saddr_size;
+        int socket_ret;
+        int sock_count;
+        int port;
     };
 }
 
