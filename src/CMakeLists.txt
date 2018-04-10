@@ -1,4 +1,8 @@
 SET( SRC_FILES main.cc TCPServer.cc TCPServer.hh )
-ADD_COMPILE_OPTIONS( -std=c++11 )
+PROJECT( TCPServer )
+
+SET( CMAKE_CXX_STANDARD 11 )
+#ADD_COMPILE_OPTIONS( -std=c++11 )
+
 ADD_EXECUTABLE( SockServer ${SRC_FILES} )
 
