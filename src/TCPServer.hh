@@ -12,7 +12,7 @@ namespace TCPServer{
         // function
         void Setup();
         void Run();
-        void Handler();
+        static int Handler(int sockfd);
         void Stop();
     private:
         struct sockaddr_in saddr, caddr;
