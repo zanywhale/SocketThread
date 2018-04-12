@@ -1,4 +1,6 @@
+
 #include "common.hh"
+#include "TCPServer.hh"
 
 int main(int argc, char *argv[])
 {
@@ -10,6 +12,8 @@ int main(int argc, char *argv[])
         std::cout << argv[0] << " [PORT NUMBER]" << std::endl;
         exit(0);
     }
+
+    TCPServer::TCPServer new_server(port);
 
     return 0;
 }
