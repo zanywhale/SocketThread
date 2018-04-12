@@ -40,6 +40,9 @@ namespace TCPServer{
             write(sockfd, buf, strlen(buf));
             memset(buf, 0, 2000);
         }
+        if(recv_size == -1){
+            std::cerr << "Failed: recv failed" << std::endl;
+        }
         return 0;
     }
 
