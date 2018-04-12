@@ -5,6 +5,7 @@ namespace TCPServer{
     TCPServer::TCPServer(int port){
         this->port = port;
         Setup();
+        Run();
     }
                              
     TCPServer::~TCPServer(){}
@@ -32,6 +33,13 @@ namespace TCPServer{
     }
 
     int TCPServer::Handler(int sockfd){
+        int recv_size = 0;
+        char buf[4096];
+        while( (recv_size = recv(sockfd, buf, 4096, 0)) > 0 ){
+            buf[recv_size] = '\0';
+            write(sockfd, buf, strlen(buf));
+            memset(buf, 0, 2000);
+        }
         return 0;
     }
 
