@@ -13,7 +13,13 @@ int main(int argc, char *argv[])
         exit(0);
     }
 
-    TCPServer::TCPServer new_server(port);
+    TCPServer::TCPServer server1(port);
+    TCPServer::TCPServer server2(port+1);
+    std::thread t1(&TCPServer::TCPServer::Run, server1);
+    std::thread t2(&TCPServer::TCPServer::Run, server2);
+    t1.join();
+    t2.join();
 
     return 0;
 }
+
