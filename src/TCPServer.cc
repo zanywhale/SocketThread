@@ -5,7 +5,6 @@ namespace TCPServer{
     TCPServer::TCPServer(int port){
         this->port = port;
         Setup();
-        Run();
     }
                              
     TCPServer::~TCPServer(){}
