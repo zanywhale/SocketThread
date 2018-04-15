@@ -42,6 +42,9 @@ namespace TCPServer{
         if(recv_size == -1){
             std::cerr << "Failed: recv failed" << std::endl;
         }
+        else if(recv_size == 0){
+            std::cout << "Client disconnected" << std::endl;
+        }
         return 0;
     }
 
@@ -49,6 +52,10 @@ namespace TCPServer{
         while( (this->sock_count = accept(this->socket_ret, (struct sockaddr *)&this->caddr, (socklen_t *)&this->saddr_size)) ){
             std::thread *t1 = new std::thread( &TCPServer::Handler, this, this->sock_count );
             vec_thread.push_back(t1);
+        }
+        if( this->sock_count < 0 ){
+            std::cerr << "Failed: accept failed" << std::endl;
+            exit(1);
         }
     }
 
