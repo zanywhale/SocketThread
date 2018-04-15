@@ -6,9 +6,12 @@
 namespace TCPClient{
     class TCPClient{
     public:
-        TCPClient(){};
-        virtual ~TCPClient(){};
+        TCPClient(int port);
+        virtual ~TCPClient();
+        void Run();
+        void Handler();
     private:
+        int port;
     };
 }
 
