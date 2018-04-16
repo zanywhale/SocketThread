@@ -8,8 +8,9 @@ namespace ThreadHandler{
     public:
         ThreadHandler();
         virtual ~ThreadHandler();
+        void Handlering();
     private:
-    }
+    };
 }
 
 #endif // THREADHANDLER_H
