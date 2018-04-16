@@ -2,6 +2,7 @@
 #include <thread>
 #include <unistd.h>
 #include <cstring>
+#include <mutex>
 
 #include <vector>
 
@@ -9,4 +10,5 @@
 #include <arpa/inet.h> // inet_addr
 
 extern std::vector<std::thread *> vec_thread;
+extern std::mutex vec_mutex;
 
