@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.5) 
 
-SET( SRC_FILES main.cc TCPServer.cc TCPServer.hh common.cc common.hh)
+SET( SRC_FILES main.cc TCPServer.cc TCPServer.hh common.cc common.hh ThreadHandler.cc ThreadHandler.hh)
 PROJECT( TCPServer )
 
 SET( CMAKE_CXX_STANDARD 11 )
