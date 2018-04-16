@@ -8,10 +8,14 @@ namespace TCPClient{
     public:
         TCPClient(int port);
         virtual ~TCPClient();
+        void Setup();
         void Run();
-        void Handler();
+        int Handler(int sockfd);
     private:
+        struct sockaddr_in saddr;
+        std::string ipaddr;
         int port;
+        int sock;
     };
 }
 
