@@ -15,7 +15,7 @@ namespace TCPServer{
             std::cout << "Failed: can't create socket" << std::endl;
             exit(1);
         }
-
+        // setup this struct
         this->saddr = {};
         this->saddr.sin_family = AF_INET;
         this->saddr.sin_addr.s_addr = INADDR_ANY;
@@ -51,7 +51,10 @@ namespace TCPServer{
     void TCPServer::Run(){
         while( (this->sock_count = accept(this->socket_ret, (struct sockaddr *)&this->caddr, (socklen_t *)&this->saddr_size)) ){
             std::thread *t1 = new std::thread( &TCPServer::Handler, this, this->sock_count );
+            // mutex
+            vec_mutex.lock();
             vec_thread.push_back(t1);
+            vec_mutex.unlock();
         }
         if( this->sock_count < 0 ){
             std::cerr << "Failed: accept failed" << std::endl;
