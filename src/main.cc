@@ -1,6 +1,7 @@
 
 #include "common.hh"
 #include "TCPServer.hh"
+#include "ThreadHandler.hh"
 
 int main(int argc, char *argv[])
 {
@@ -15,10 +16,13 @@ int main(int argc, char *argv[])
 
     TCPServer::TCPServer server1(port);
     TCPServer::TCPServer server2(port+1);
+    ThreadHandler::ThreadHandler handler;
     std::thread t1(&TCPServer::TCPServer::Run, server1);
     std::thread t2(&TCPServer::TCPServer::Run, server2);
+    std::thread t3(&ThreadHandler::ThreadHandler::Handlering, handler);
     t1.join();
     t2.join();
+    t3.join();
 
     return 0;
 }
