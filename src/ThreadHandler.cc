@@ -6,7 +6,7 @@ namespace ThreadHandler{
 
     ThreadHandler::~ThreadHandler(){}
 
-    void ThreadHandler::Handlering(){
+    int ThreadHandler::Handlering(){
         vec_mutex.lock();
         // vec_thread
         // Check up in regular sequence
