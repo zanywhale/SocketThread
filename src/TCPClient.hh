@@ -9,7 +9,7 @@ namespace TCPClient{
         TCPClient(int port);
         virtual ~TCPClient();
         void Setup();
-        void Run();
+        void Run(int sockfd);
         int Handler(int sockfd);
     private:
         struct sockaddr_in saddr;

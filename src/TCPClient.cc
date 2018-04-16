@@ -24,6 +24,6 @@ namespace TCPClient{
         
     }
 
-    void TCPClient::Handler(){}    
+    int TCPClient::Handler(int sockfd){}
 }
 
