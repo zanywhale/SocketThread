@@ -7,12 +7,17 @@ namespace ThreadHandler{
     ThreadHandler::~ThreadHandler(){}
 
     int ThreadHandler::Handlering(){
-        vec_mutex.lock();
-        // vec_thread
-        // Check up in regular sequence
-        // and it needs to sleep()...Ha
-        vec_mutex.unlock();
+        while(true){
+            vec_mutex.lock();/*
+            for( this->iter = vec_thread->begin(); this->iter != vec_thread->end(); iter++ ){
+                if( !iter->joinable() ){
+                    iter->detach();
+                }
+            }*/
+            std::cout << "hello" <<std::endl;
+            vec_mutex.unlock();
+            std::this_thread::sleep_for(std::chrono::milliseconds(10000));
+        }
     }
-
 }
 

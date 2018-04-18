@@ -10,6 +10,7 @@ namespace ThreadHandler{
         virtual ~ThreadHandler();
         int Handlering();
     private:
+        std::vector<std::thread>::iterator iter;
     };
 }
 
