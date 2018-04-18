@@ -37,7 +37,7 @@ namespace TCPServer{
         while( (recv_size = recv(sockfd, buf, 4096, 0)) > 0 ){
             buf[recv_size] = '\0';
             write(sockfd, buf, strlen(buf));
-            memset(buf, 0, 2000);
+            memset(buf, 0, 4096);
         }
         if(recv_size == -1){
             std::cerr << "Failed: recv failed" << std::endl;
