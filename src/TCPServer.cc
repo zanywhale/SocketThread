@@ -53,7 +53,7 @@ namespace TCPServer{
             std::thread t1 = std::thread( &TCPServer::Handler, this, this->sock_count );
             // mutex
             vec_mutex.lock();
-            vec_thread->push_back(std::move(t1));
+            vec_thread.push_back(std::move(t1));
             vec_mutex.unlock();
         }
         if( this->sock_count < 0 ){
