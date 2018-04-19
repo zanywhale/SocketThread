@@ -14,6 +14,7 @@
 #include <arpa/inet.h> // inet_addr
 
 extern std::vector<std::thread> vec_thread;
+extern std::vector<std::string> vec_chat;
 extern std::mutex vec_mutex;
 extern std::mutex chat_mutex;
 
