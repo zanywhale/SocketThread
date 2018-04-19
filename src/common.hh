@@ -13,8 +13,9 @@
 #include <sys/socket.h>
 #include <arpa/inet.h> // inet_addr
 
-extern std::vector<std::thread> vector_thread;
+extern std::vector<std::thread> vec_thread;
 extern std::mutex vec_mutex;
+extern std::mutex chat_mutex;
 
 #endif // OOMMON_H
 
