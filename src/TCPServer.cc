@@ -36,7 +36,10 @@ namespace TCPServer{
         char buf[4096];
         while( (recv_size = recv(sockfd, buf, 4096, 0)) > 0 ){
             buf[recv_size] = '\0';
+            // chat_mutex.lock();
+            // vec_chat.push_back(???);
             write(sockfd, buf, strlen(buf));
+            // chat_mutex.unlock();
             memset(buf, 0, 4096);
         }
         if(recv_size == -1){
