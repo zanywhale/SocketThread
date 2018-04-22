@@ -34,11 +34,13 @@ namespace TCPServer{
     int TCPServer::Handler(int sockfd){
         int recv_size = 0;
         char buf[4096];
+        std::cout << "thread ID: " << std::this_thread::get_id() << std::endl;
         while( (recv_size = recv(sockfd, buf, 4096, 0)) > 0 ){
             buf[recv_size] = '\0';
             // chat_mutex.lock();
             // vec_chat.push_back(???);
             write(sockfd, buf, strlen(buf));
+            std::cout << buf << std::endl;
             // chat_mutex.unlock();
             memset(buf, 0, 4096);
         }
@@ -46,7 +48,10 @@ namespace TCPServer{
             std::cerr << "Failed: recv failed" << std::endl;
         }
         else if(recv_size == 0){
-            std::cout << "Client disconnected" << std::endl;
+/*            list_mutex.lock();
+            list_thread.push_back(std::this_thread::get_id());
+            list_mutex.unlock();
+*/            std::cout << "Client disconnected" << std::endl;
         }
         return 0;
     }
