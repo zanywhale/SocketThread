@@ -10,7 +10,6 @@ namespace ThreadHandler{
         while(true){
             list_mutex.lock();
             for( this->iter = list_thread.begin() ; this->iter != list_thread.end() ;){
-                std::cout << this->iter->get_id() << std::endl;
                 if( this->iter->joinable() ){
                     std::cout << "Join..." << this->iter->get_id()<< std::endl;
                     iter->detach();
