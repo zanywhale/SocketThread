@@ -9,12 +9,12 @@ namespace ThreadHandler{
     int ThreadHandler::Handlering(){
         while(true){
             list_mutex.lock();
-            for( unsigned int i = 0; i < list_thread.size(); ++i ){
-                /*if( list_thread[i].joinable() ){
-                    std::cout << "Join..." << list_thread[i].get_id()<< std::endl; 
-                    list_thread[i].join();
-                    // pop vector
-                }*/
+            for( this->iter = list_thread.begin() ; this->iter != list_thread.end() ; iter++ ){
+                if( this->iter->joinable() ){
+                    std::cout << "Join..." << this->iter->get_id()<< std::endl; 
+                    this->iter->join();
+                    // list_thread.erase(this->iter);
+                }
             }
             list_mutex.unlock();
             std::this_thread::sleep_for(std::chrono::milliseconds(10000));
