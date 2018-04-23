@@ -10,10 +10,10 @@ namespace UDPServer{
         virtual ~UDPServer();
         void Setup();
         void Handler();
-        void Run();
     private:
         struct sockaddr_in saddr, caddr;
         int saddr_size;
+        socklen_t caddr_size;
         int socket_ret;
         int port;
     };
