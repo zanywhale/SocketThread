@@ -26,7 +26,7 @@ namespace TCPServer{
             std::cerr<< "Failed: bind error" << std::endl;
             exit(1);
         }
-
+        // listen
         listen(this->socket_ret, 5);
         this->saddr_size = sizeof(struct sockaddr_in);
     }
@@ -46,10 +46,7 @@ namespace TCPServer{
             std::cerr << "Failed: recv failed" << std::endl;
         }
         else if(recv_size == 0){
-/*            list_mutex.lock();
-            list_thread.push_back(std::this_thread::get_id());
-            list_mutex.unlock();
-*/            std::cout << "Client disconnected" << std::endl;
+            std::cout << "Client disconnected" << std::endl;
         }
         return 0;
     }
@@ -57,7 +54,8 @@ namespace TCPServer{
     void TCPServer::Run(){
         while( (this->sock_count = accept(this->socket_ret, (struct sockaddr *)&this->caddr, (socklen_t *)&this->saddr_size)) ){
             std::thread t1 = std::thread( &TCPServer::Handler, this, this->sock_count );
-            // mutex
+            // Vector is unsuitable for in this situation
+            // mutex && push into the list
             list_mutex.lock();
             list_thread.push_back(std::move(t1));
             list_mutex.unlock();
