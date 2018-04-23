@@ -14,6 +14,7 @@ namespace UDPServer{
     private:
         struct sockaddr_in saddr, caddr;
         int saddr_size;
+        int socket_ret;
         int port;
     };
 }
