@@ -12,6 +12,7 @@
 #include <list>
 
 #include <sys/socket.h>
+#include <sys/types.h>
 #include <arpa/inet.h> // inet_addr
 
 extern std::vector<std::thread> vec_thread;
