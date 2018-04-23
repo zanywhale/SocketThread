@@ -17,7 +17,7 @@ namespace UDPServer{
         // setup socketaddr_in struct
         this->saddr = {};
         this->saddr.sin_family = PF_INET;
-        this->saddr.sin_addr.s_addr = INADDR_ANY;
+        this->saddr.sin_addr.s_addr = htonl(INADDR_ANY);
         this->saddr.sin_port = htons(this->port);
 
         // bind
