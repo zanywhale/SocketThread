@@ -15,8 +15,8 @@ int main(int argc, char *argv[])
 
     UDPServer::UDPServer server1(port);
     UDPServer::UDPServer server2(port+1);
-    std::thread t1(&UDPServer::UDPServer::Run, server1);
-    std::thread t2(&UDPServer::UDPServer::Run, server2);
+    std::thread t1(&UDPServer::UDPServer::Handler, server1);
+    std::thread t2(&UDPServer::UDPServer::Handler, server2);
     t1.join();
     t2.join();
 
