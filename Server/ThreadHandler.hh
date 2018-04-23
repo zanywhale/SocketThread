@@ -11,6 +11,7 @@ namespace ThreadHandler{
         int Handlering();
     private:
         std::list<std::thread>::iterator iter;
+        std::list<std::thread>::iterator tmp_iter;
     };
 }
 

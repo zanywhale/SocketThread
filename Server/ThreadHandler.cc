@@ -12,9 +12,9 @@ namespace ThreadHandler{
             for( this->iter = list_thread.begin() ; this->iter != list_thread.end() ;){
                 if( this->iter->joinable() ){
                     std::cout << "Join..." << this->iter->get_id()<< std::endl;
-                    iter->detach();
-                    std::list<std::thread>::iterator tmp_iter = this->iter;
-                    tmp_iter++;
+                    this->iter->detach();
+                    this->tmp_iter = this->iter;
+                    this->tmp_iter++;
                     list_thread.erase(iter);
                     this->iter=tmp_iter;
                 }
