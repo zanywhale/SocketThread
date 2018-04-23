@@ -15,6 +15,7 @@ namespace UDPServer{
             exit(1);
         }
         // setup socketaddr_in struct
+        this->caddr = {};
         this->saddr = {};
         this->saddr.sin_family = PF_INET;
         this->saddr.sin_addr.s_addr = htonl(INADDR_ANY);
@@ -28,11 +29,15 @@ namespace UDPServer{
     }
 
     void UDPServer::Handler(){
-
-    }
-
-    void UDPServer::Run(){
-
+        int recv_size = 0;
+        char buf[4096];
+        while(1){
+            this->caddr_size = sizeof(struct sockaddr);
+            recv_size = recvfrom(this->socket_ret, buf, 4096, 0, (struct sockaddr *)&this->caddr, &this->caddr_size);
+            buf[recv_size] = '\0';
+            std::cout << buf << std::endl;
+            // sendto( this->socket_ret, buf, 4096, 0, (struct sockaddr *)&this->caddr, sizeof(this->caddr));
+        }
     }
 }
 
