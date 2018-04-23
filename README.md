@@ -10,13 +10,16 @@ UDP Socket Thread
 
 ```sh
 $ git clone https://github.com/zanywhale/SocketThread.git SocketThread
-$ cd SocketThread/Server
+$ cd SocketThread/TCPServer
+*(or cd SocketThread/UDPServer)
 $ cmake CmakeLists.txt
 $ make
 $ ./SocketThread [PortNum]
 ```
 
 ## Test
+
+### TCP
 
 ```
 $ ./SocketThread 9999
@@ -25,5 +28,16 @@ $ ./SocketThread 9999
 ```
 $ nc localhost 9999
 $ nc localhost 10000
+```
+
+### UDP
+
+```
+$ ./SocketThread 9999
+```
+
+```
+$ nc localhost 9999 -u
+$ nc localhost 10000 -u
 ```
 
