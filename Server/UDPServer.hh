@@ -3,12 +3,18 @@
 
 #include "common.hh"
 
-namespace UDPSock{
-    class UDPSock{
+namespace UDPServer{
+    class UDPServer{
     public:
-        UDPSock(){};
-        virtual ~UDPSock(){};
+        UDPServer(int port);
+        virtual ~UDPServer();
+        void Setup();
+        void Hnadler();
+        void Run();
     private:
+        struct sockaddr_in saddr, caddr;
+        int saddr_size;
+        int port;
     };
 }
 
