@@ -18,7 +18,7 @@ namespace TCPServer{
         // setup this struct
         this->saddr = {};
         this->saddr.sin_family = AF_INET;
-        this->saddr.sin_addr.s_addr = INADDR_ANY;
+        this->saddr.sin_addr.s_addr = htonl(INADDR_ANY);
         this->saddr.sin_port = htons(this->port);
 
         // bind
