@@ -9,7 +9,7 @@ namespace UDPServer{
         UDPServer(int port);
         virtual ~UDPServer();
         void Setup();
-        void Hnadler();
+        void Handler();
         void Run();
     private:
         struct sockaddr_in saddr, caddr;
