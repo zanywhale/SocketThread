@@ -6,9 +6,16 @@
 namespace UDPClient{
     class UDPClient{
     public:
-        UDPClient(){};
-        virtual ~UDPClient(){};
+        UDPClient(std::string ipaddr, int port);
+        virtual ~UDPClient();
+        void Setup();
+        void Run();
+        int Handler(int sockfd);
     private:
+        std::string ipaddr;
+        int port;
+        int sock;
+        
     };
 }
 
