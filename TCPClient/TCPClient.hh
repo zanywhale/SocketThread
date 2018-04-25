@@ -6,7 +6,7 @@
 namespace TCPClient{
     class TCPClient{
     public:
-        TCPClient(int port);
+        TCPClient(std::string ipaddr, int port);
         virtual ~TCPClient();
         void Setup();
         void Run(int sockfd);
