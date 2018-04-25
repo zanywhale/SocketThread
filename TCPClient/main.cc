@@ -13,6 +13,8 @@ int main(int argc, char *argv[])
         exit(0);
     }
 
+    TCPClient::TCPClient t1(argv[1], port);
+
     return 0;
 }
 
