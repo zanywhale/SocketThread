@@ -9,13 +9,12 @@ namespace UDPClient{
         UDPClient(std::string ipaddr, int port);
         virtual ~UDPClient();
         void Setup();
-        void Run();
-        int Handler(int sockfd);
+        void Run(int sockfd);
     private:
+        struct sockaddr_in saddr;
         std::string ipaddr;
         int port;
-        int sock;
-        
+        int sock;        
     };
 }
 
