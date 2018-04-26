@@ -13,6 +13,8 @@ int main(int argc, char *argv[])
         exit(0);
     }
 
+    UDPClient::UDPClient clinet(argv[1], port);
+
     return 0;
 }
 
