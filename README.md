@@ -26,8 +26,8 @@ $ ./SocketThread 9999
 ```
 
 ```
-$ nc localhost 9999
-$ nc localhost 10000
+$ ./TCPClient localhost 9999
+$ ./TCPClient localhost 9999
 ```
 
 ### UDP
