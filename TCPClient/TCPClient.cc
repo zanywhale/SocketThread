@@ -24,9 +24,31 @@ namespace TCPClient{
             std::cerr << "Failed: connection error" << std::endl;
             exit(1);
         }
-        
+        else{
+            Handler(sockfd);
+        }
     }
 
-    int TCPClient::Handler(int sockfd){}
+    int TCPClient::Handler(int sockfd){
+        int recv_size = 0;
+        char buf[4096];
+        memset(buf, 0, 4096);
+        std::cin >> buf;
+        send(sockfd, buf, strlen(buf), 0);
+        while( (recv_size = recv(sockfd, buf, 4096, 0)) > 0){
+            buf[recv_size] = '\0';
+            std::cout << buf << std::endl;
+            memset(buf, 0, 4096);
+            std::cin >> buf;
+            send(sockfd, buf, strlen(buf), 0);
+        }
+        if( recv_size == -1){
+            std::cerr << "Failed: recv failed" << std::endl;
+        }
+        else if( recv_size == 0){
+            std::cout << "Client disconnected" << std::endl;
+        }
+        return 0;
+    }
 }
 
