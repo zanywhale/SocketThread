@@ -17,9 +17,9 @@ $ make
 $ ./SocketThread [PortNum]
 ```
 
-## Test
+## Example
 
-### TCP
+### TCP Example
 
 ```
 $ ./SocketThread 9999
@@ -27,17 +27,17 @@ $ ./SocketThread 9999
 
 ```
 $ ./TCPClient localhost 9999
-$ ./TCPClient localhost 9999
+$ ./TCPClient localhost 10000
 ```
 
-### UDP
+### UDP Example
 
 ```
 $ ./SocketThread 9999
 ```
 
 ```
-$ nc localhost 9999 -u
-$ nc localhost 10000 -u
+$ ./UDPClient localhost 9999
+$ ./UDPClient localhost 10000
 ```
 
