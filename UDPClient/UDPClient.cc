@@ -23,9 +23,8 @@ namespace UDPClient{
         socklen_t length = sizeof(saddr);
         while(1){
           char buf[256];
-            fgets(buf, 256, stdin);
-            sendto(sockfd,buf,sizeof(buf), 0, (struct sockaddr *)&saddr, length);
-            recvfrom(sockfd,buf, 256,0,(struct sockaddr *)&saddr, &length);
+          fgets(buf, 256, stdin);
+          sendto(sockfd,buf,sizeof(buf), 0, (struct sockaddr *)&saddr, length);
         }
     }
 }
