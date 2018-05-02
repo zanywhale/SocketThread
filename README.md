@@ -1,10 +1,8 @@
 # SocketThread
 
-Using C++11
+- Using C++11, cmake
 
-TCP Socket Thread
-
-UDP Socket Thread
+- TCP/UDP Socket Thread
 
 ## Build & Usage
 
