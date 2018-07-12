@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
     ThreadHandler::ThreadHandler handler;
     std::thread t1(&TCPServer::TCPServer::Run, server1);
     std::thread t2(&TCPServer::TCPServer::Run, server2);
-    std::thread t3(&ThreadHandler::ThreadHandler::Handlering, handler);
+    std::thread t3(&ThreadHandler::ThreadHandler::Handling, handler);
     t1.join();
     t2.join();
     t3.join();

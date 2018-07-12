@@ -6,7 +6,7 @@ namespace ThreadHandler{
 
     ThreadHandler::~ThreadHandler(){}
 
-    int ThreadHandler::Handlering(){
+    int ThreadHandler::Handling(){
         while(true){
             list_mutex.lock();
             for( this->iter = list_thread.begin() ; this->iter != list_thread.end() ;){

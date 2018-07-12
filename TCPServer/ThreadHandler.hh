@@ -8,7 +8,7 @@ namespace ThreadHandler{
     public:
         ThreadHandler();
         virtual ~ThreadHandler();
-        int Handlering();
+        int Handling();
     private:
         std::list<std::thread>::iterator iter;
         std::list<std::thread>::iterator tmp_iter;
